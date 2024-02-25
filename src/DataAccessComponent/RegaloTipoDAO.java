@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.RegaloTipoDTO;
 
-public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDTO> {
+public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDTO> {
 
     @Override
     public boolean create(RegaloTipoDTO entity) throws Exception {
@@ -125,5 +125,11 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipo
         catch (SQLException e) {
             throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
         }
+    }
+
+    @Override
+    public Integer getMaxRow() throws Exception {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getMaxRow'");
     }
 }
