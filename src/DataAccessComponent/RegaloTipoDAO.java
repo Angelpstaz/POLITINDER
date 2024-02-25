@@ -64,7 +64,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
     @Override
     public RegaloTipoDTO read(Integer id) throws Exception {
         RegaloTipoDTO oDTORegaloTipo = new RegaloTipoDTO();
-        String query =" SELECT IdRegaloTipo  " 
+        String query =" SELECT RegaloTipo  " 
                      +",Nombre            "    
                      +",Observacion"
                      +",Estado            "    
@@ -125,5 +125,11 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
         catch (SQLException e) {
             throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
         }
+    }
+
+    @Override
+    public Integer getMaxRow() throws Exception {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getMaxRow'");
     }
 }
