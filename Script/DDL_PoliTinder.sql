@@ -33,62 +33,68 @@ DROP TABLE IF EXISTS Cita;
 
 --Catalogo
 CREATE TABLE RegaloTipo(
-        IdRegaloTipo    INTEGER PRIMARY KEY AUTOINCREMENT
-        ,Nombre         TEXT  NOT NULL UNIQUE
-        ,Observacion    TEXT
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica  DATETIME
+        IdRegaloTipo            INTEGER PRIMARY KEY AUTOINCREMENT
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATETIME
 
 );
 
 CREATE TABLE PersonaRol(
-        IdPersonaRol INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdPersonaRolPadre INTEGER  REFERENCES PersonaRol (IdPersonaRol)
-        ,Nombre TEXT  NOT NULL UNIQUE
-        ,Observacion TEXT
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica DATE
+        IdPersonaRol            INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdPersonaRolPadre      INTEGER  REFERENCES PersonaRol (IdPersonaRol)
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATE
 
 );
 
 CREATE TABLE PersonaSexo(
-        IdPersonaSexo    INTEGER PRIMARY KEY AUTOINCREMENT
-        ,Nombre         TEXT  NOT NULL UNIQUE
-        ,Observacion    TEXT
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica  DATE
+        IdPersonaSexo           INTEGER PRIMARY KEY AUTOINCREMENT
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATE
 
 );
 
 CREATE TABLE Persona(
-        IdPersona    INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdPersonaRol INTEGER NOT NULL REFERENCES PersonaRol(IdPersonaRol)
-        ,IdPersonaSexo    INTEGER REFERENCES PersonaSexo(IdPersonaSexo)
-        ,Nombre         TEXT  NOT NULL UNIQUE
-        ,Observacion    TEXT
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica  DATE
+        IdPersona               INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdPersonaRol           INTEGER NOT NULL REFERENCES PersonaRol(IdPersonaRol)
+        ,IdPersonaSexo          INTEGER REFERENCES PersonaSexo(IdPersonaSexo)
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATE
 
 );
 
 CREATE TABLE Regalo(
-        IdRegalo        INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdRegaloTipo   INTEGER NOT NULL REFERENCES RegaloTipo(IdRegaloTipo)
-        ,Nombre         TEXT  NOT NULL UNIQUE
-        ,Observacion    TEXT
-        ,Precio         REAL NOT NULL CHECK (Precio >= 0)
-        ,Stock          INT NOT NULL
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica  DATE
+        IdRegalo                INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdRegaloTipo           INTEGER NOT NULL REFERENCES RegaloTipo(IdRegaloTipo)
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Precio                 REAL NOT NULL CHECK (Precio >= 0)
+        ,Stock                  INT NOT NULL
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATE
 
 );
 
 CREATE TABLE RelacionTipo(
-        IdRelacionTipo  INTEGER PRIMARY KEY AUTOINCREMENT
-        ,Nombre         TEXT  NOT NULL UNIQUE
-        ,Observacion    TEXT
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica  DATE
+        IdRelacionTipo          INTEGER PRIMARY KEY AUTOINCREMENT
+        ,Nombre                 TEXT  NOT NULL UNIQUE
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaModifica          DATE
 );
 
 CREATE TABLE Relacion(
@@ -97,30 +103,29 @@ CREATE TABLE Relacion(
         ,IdPersona1             INTEGER  NOT NULL REFERENCES Persona(IdPersona)
         ,IdPersona2             INTEGER  NOT NULL REFERENCES Persona(IdPersona)
         ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
         ,FechaInicioRelacion    DATE NOT NULL DEFAULT (datetime('now'))
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 );
 
 CREATE TABLE Cita(
-        IdCita                 INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdPersona1            INTEGER NOT NULL REFERENCES Persona(IdPersona)
-        ,IdPersona2            INTEGER NOT NULL REFERENCES Persona(IdPersona)
-        ,FechaCita             DATE NOT NULL
-        ,FechaCrea      DATETIME NOT NULL  DEFAULT (datetime('now'))
+        IdCita                  INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdPersona1             INTEGER NOT NULL REFERENCES Persona(IdPersona)
+        ,IdPersona2             INTEGER NOT NULL REFERENCES Persona(IdPersona)
+        ,FechaCita              DATE NOT NULL
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 );
 
 CREATE TABLE RegaloEnvio(
-        IdRegaloEnvio            INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdRegalo                INTEGER   NOT NULL REFERENCES Regalo(IdRegalo)
-        ,IdPersonaEnvia          INTEGER   NOT NULL REFERENCES Persona(IdPersona)
-        ,IdPersonaRecibe         INTEGER   NOT NULL REFERENCES Persona(IdPersona)
-        ,Observacion             TEXT
-        ,FechaCrea               DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaEnvio              DATE NOT NULL
-        ,FechaModifica           DATE
-
-
-
+        IdRegaloEnvio           INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdRegalo               INTEGER   NOT NULL REFERENCES Regalo(IdRegalo)
+        ,IdPersonaEnvia         INTEGER   NOT NULL REFERENCES Persona(IdPersona)
+        ,IdPersonaRecibe        INTEGER   NOT NULL REFERENCES Persona(IdPersona)
+        ,Observacion            TEXT
+        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
+        ,FechaEnvio             DATE NOT NULL
+        ,FechaModifica          DATE
 )
