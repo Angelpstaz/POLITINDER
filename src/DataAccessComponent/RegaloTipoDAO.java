@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.RegaloTipoDTO;
 
-public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDTO> {
+public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDTO> {
 
     @Override
     public boolean create(RegaloTipoDTO entity) throws Exception {
@@ -64,7 +64,7 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipo
     @Override
     public RegaloTipoDTO read(Integer id) throws Exception {
         RegaloTipoDTO oDTORegaloTipo = new RegaloTipoDTO();
-        String query =" SELECT RegaloTipo  " 
+        String query =" SELECT IdRegaloTipo  " 
                      +",Nombre            "    
                      +",Observacion"
                      +",Estado            "    
