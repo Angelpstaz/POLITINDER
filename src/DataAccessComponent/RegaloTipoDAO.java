@@ -52,11 +52,11 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
                                              rs.getString(3), 
                                              rs.getString(4), 
                                              rs.getString(5),
-                                             rs.getString(5));
+                                             rs.getString(6));
              lst.add(oDTORegaloTipo);//cada vez que traemos una fila agregamos a una lista.
          }
      }catch(SQLException e){
-        throw new Exception(getClass()+"getMaxIdSexo",e);
+        throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
      }
      return lst;
     }
@@ -64,7 +64,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
     @Override
     public RegaloTipoDTO read(Integer id) throws Exception {
         RegaloTipoDTO oDTORegaloTipo = new RegaloTipoDTO();
-        String query =" SELECT RegaloTipo  " 
+        String query =" SELECT IdRegaloTipo  " 
                      +",Nombre            "    
                      +",Observacion"
                      +",Estado            "    
@@ -82,7 +82,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
                                              rs.getString(3), 
                                              rs.getString(4), 
                                              rs.getString(5),
-                                             rs.getString(5));    // FechaModifica
+                                             rs.getString(6));    // FechaModifica
                 oDTORegaloTipo=oDTORegaloTipo1;
             }
         } 
