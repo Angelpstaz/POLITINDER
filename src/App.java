@@ -1,7 +1,6 @@
 import DataAccessComponent.RegaloTipoDAO;
 import DataAccessComponent.DTO.RegaloTipoDTO;
-import DataAccessComponent.RelacionTipoDAO;
-import DataAccessComponent.DTO.RelacionTipoDTO;
+import UserInterface.FrameMenuPantallas;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -13,6 +12,10 @@ public class App {
         rtdto = rtdao.read(1);
         System.out.println(q.getNombre());
         System.out.println(rtdto.getNombre());
-        
+        FrameMenuPantallas frameMenu = new FrameMenuPantallas();
+        frameMenu.frame.setVisible(true);
+
     }
+   
 }
+
