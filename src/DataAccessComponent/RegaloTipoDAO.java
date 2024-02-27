@@ -38,7 +38,10 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
                   +", Estado        "
                   +", FechaCrea     "
                   +", FechaModifica " //DTO
-                  +" FROM     RegaloTipo ";
+                  +" FROM     RegaloTipo "
+                  //Test by Angel
+                  +" WHERE    Estado ='A'";;
+                  //Test By Angel
                   //LEEMOS LA TABLA
      try{
          Connection conn = openConnection();  
@@ -129,7 +132,6 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
 
     @Override
     public Integer getMaxRow() throws Exception {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getMaxRow'");
     }
 }
