@@ -96,13 +96,13 @@ public class PersonaRolDTO {
     @Override
     public String toString() {
         return "\n"+getClass().getName()
-                    +"\nIdPersonaRol   : "+ getIdPersonaRol()    
+                    +"\nIdPersonaRol        : "+ getIdPersonaRol()    
                     +"\nIdPersonaRolPadre   : "+ getIdPersonaRolPadre()    
-                    +"\nNombre          : "+ getNombre()         
-                    +"\nObservacion     : "+ getObservacion()    
-                    +"\nEstado          : "+ getEstado()         
-                    +"\nFechaCrea       : "+ getFechaCrea()      
-                    +"\nFechaModifica   : "+ getFechaModifica();  
+                    +"\nNombre              : "+ getNombre()         
+                    +"\nObservacion         : "+ getObservacion()    
+                    +"\nEstado              : "+ getEstado()         
+                    +"\nFechaCrea           : "+ getFechaCrea()      
+                    +"\nFechaModifica       : "+ getFechaModifica();  
     }  
     
 }

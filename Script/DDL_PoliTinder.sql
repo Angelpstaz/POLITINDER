@@ -36,7 +36,7 @@ CREATE TABLE RegaloTipo(
         IdRegaloTipo            INTEGER PRIMARY KEY AUTOINCREMENT
         ,Nombre                 TEXT  NOT NULL UNIQUE
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATETIME
 
@@ -47,7 +47,7 @@ CREATE TABLE PersonaRol(
         ,IdPersonaRolPadre      INTEGER  REFERENCES PersonaRol (IdPersonaRol)
         ,Nombre                 TEXT  NOT NULL UNIQUE
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 
@@ -69,7 +69,7 @@ CREATE TABLE Persona(
         ,IdPersonaSexo          INTEGER REFERENCES PersonaSexo(IdPersonaSexo)
         ,Nombre                 TEXT  NOT NULL UNIQUE
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 
@@ -80,7 +80,7 @@ CREATE TABLE Regalo(
         ,IdRegaloTipo           INTEGER NOT NULL REFERENCES RegaloTipo(IdRegaloTipo)
         ,Nombre                 TEXT  NOT NULL UNIQUE
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,Precio                 REAL NOT NULL CHECK (Precio >= 0)
         ,Stock                  INT NOT NULL
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
@@ -92,7 +92,7 @@ CREATE TABLE RelacionTipo(
         IdRelacionTipo          INTEGER PRIMARY KEY AUTOINCREMENT
         ,Nombre                 TEXT  NOT NULL UNIQUE
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 );
@@ -103,7 +103,7 @@ CREATE TABLE Relacion(
         ,IdPersona1             INTEGER  NOT NULL REFERENCES Persona(IdPersona)
         ,IdPersona2             INTEGER  NOT NULL REFERENCES Persona(IdPersona)
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaInicioRelacion    DATE NOT NULL DEFAULT (datetime('now'))
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
@@ -124,7 +124,7 @@ CREATE TABLE RegaloEnvio(
         ,IdPersonaEnvia         INTEGER   NOT NULL REFERENCES Persona(IdPersona)
         ,IdPersonaRecibe        INTEGER   NOT NULL REFERENCES Persona(IdPersona)
         ,Observacion            TEXT
-        ,Estado                 CHAR NOT NULL DEFAULT ('A')
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaEnvio             DATE NOT NULL
         ,FechaModifica          DATE

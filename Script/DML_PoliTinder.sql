@@ -19,6 +19,7 @@ Script: Ingreso de datos en la tabla Regalo
         Ingreso de datos en la tabla Cita
 */
 
+
 INSERT INTO RegaloTipo
     (Nombre,Observacion) 
 VALUES 
