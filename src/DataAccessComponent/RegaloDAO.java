@@ -34,6 +34,7 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
         String query="SELECT IdRegalo "
                         +",IdRegaloTipo         "
                         +",Nombre         "
+                        +",Observacion         "
                         +",Stock    "
                         +",Precio    "
                         +",Estado         "
@@ -49,10 +50,11 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
                                         ,rs.getInt(2)
                                         ,rs.getString(3)
                                         ,rs.getString(4)
-                                        ,rs.getInt(5)
-                                        ,rs.getString(6)
+                                        ,rs.getString(5)
+                                        ,rs.getInt(6)
                                         ,rs.getString(7)
-                                        ,rs.getString(8));
+                                        ,rs.getString(8)
+                                        ,rs.getString(9));
             lst.add(oRegaloDTO);
 
             }
@@ -68,6 +70,7 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
         String  query="SELECT IdRegalo"
                         +",IdRegaloTipo        "
                         +",Nombre        "
+                        +",Observacion        "
                         +",Stock   "
                         +",Precio   "
                         +",Estado        "
@@ -84,10 +87,11 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
                         ,rs.getInt(2)
                         ,rs.getString(3)
                         ,rs.getString(4)
-                        ,rs.getInt(5)
-                        ,rs.getString(6)
+                        ,rs.getString(5)
+                        ,rs.getInt(6)
                         ,rs.getString(7)
-                        ,rs.getString(8));
+                        ,rs.getString(8)
+                        ,rs.getString(9));
                         }
             } catch (Exception e) {
                 throw e;

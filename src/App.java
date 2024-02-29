@@ -4,6 +4,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
+
 import UserInterface.Form.MainForm;
 import UserInterface.Form.SplashScreenForm;
 

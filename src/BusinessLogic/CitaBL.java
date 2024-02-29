@@ -7,7 +7,7 @@ import DataAccessComponent.DTO.CitaDTO;
 
 public class CitaBL {
     private CitaDTO oCitaDTO;
-    private CitaDAO oCitaDAO;
+    private CitaDAO oCitaDAO = new CitaDAO();
 
     public List<CitaDTO> readAll()throws Exception{
         return oCitaDAO.readAll();

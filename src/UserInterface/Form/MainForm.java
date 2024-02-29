@@ -15,7 +15,10 @@ public class MainForm extends JFrame {
     public MainForm(String titleApp) {
         customizeComponent(titleApp);
         pnlMenu.btnHome.addActionListener(e -> setPanel(new MainPanel()));
+        pnlMenu.btnRegalo.addActionListener(e -> setPanel(new RegaloPanel()));
         pnlMenu.btnRegaloTipo.addActionListener(e -> setPanel(new RegaloTipoPanel()));
+        pnlMenu.btnCita.addActionListener(e -> setPanel(new CitaPanel()));
+        pnlMenu.btnRelacionTipo.addActionListener(e -> setPanel(new RelacionTipoPanel()));
     }
 
     private void setPanel(JPanel panel) {
