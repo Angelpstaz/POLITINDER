@@ -47,13 +47,13 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTi
          //return stmt.executeQuery(query);  // RESULTADO DE LO QUE VIENE DE LA CLASE, ENTONCES USAREMOS:
 
         while (rs.next()) {
-            RelacionTipoDTO oDTORelacionTipo = new RelacionTipoDTO (rs.getInt(1),
+            RelacionTipoDTO oRelacionTipoDTO = new RelacionTipoDTO (rs.getInt(1),
                                                 rs.getString(2),
                                                 rs.getString(3),
                                                 rs.getString(4),
                                                 rs.getString(5),
                                                 rs.getString(6));
-            lst.add(oDTORelacionTipo);//cada vez que traemos una fila agregamos a una lista.
+            lst.add(oRelacionTipoDTO);//cada vez que traemos una fila agregamos a una lista.
         }
     }catch(SQLException e){
         throw new Exception(getClass()+"getMaxIdRelacionTipo",e);
@@ -63,7 +63,7 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTi
 
     @Override
     public RelacionTipoDTO readBy(Integer id) throws Exception {
-        RelacionTipoDTO oDTORelacionTipo = new RelacionTipoDTO();
+        RelacionTipoDTO oRelacionTipoDTO = new RelacionTipoDTO();
         String query =" SELECT IdRelacionTipo  "
                         +",Nombre            "
                         +",Observacion"
@@ -77,7 +77,7 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTi
             Statement  stmt = conn.createStatement();   // CRUD : select * ...
             ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
             while (rs.next()) {
-                oDTORelacionTipo = new RelacionTipoDTO(rs.getInt(1)
+                oRelacionTipoDTO = new RelacionTipoDTO(rs.getInt(1)
                                     ,rs.getString(2)
                                     ,rs.getString(3)
                                     ,rs.getString(4)
@@ -88,7 +88,7 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTi
         catch (SQLException e) {
             throw new Exception(getClass()+"getMaxIdRelacionTipo",e);
         }
-        return oDTORelacionTipo;
+        return oRelacionTipoDTO;
     }
 
     @Override

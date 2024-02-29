@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.net.URL;
 
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -27,9 +26,9 @@ public abstract class Style {
     public static final Cursor CURSOR_HAND    = new Cursor(Cursor.HAND_CURSOR);
     public static final Cursor CURSOR_DEFAULT = new Cursor(Cursor.DEFAULT_CURSOR);
 
-    public static final URL URL_MAIN  = Style.class.getResource("/UserInterface/Resource/fondo2.png");
-    public static final URL URL_LOGO  = Style.class.getResource("/UserInterface/Resource/fondo2.png");
-    public static final URL URL_SPLASH= Style.class.getResource("/UserInterface/Resource/fondo2.png");
+    public static final URL URL_MAIN  = Style.class.getResource("/UserInterface/Resource/Splash.png");
+    public static final URL URL_LOGO  = Style.class.getResource("/UserInterface/Resource/Logo.png");
+    public static final URL URL_SPLASH= Style.class.getResource("/UserInterface/Resource/Splash.png");
 
     public static final CompoundBorder createBorderRect(){
         return BorderFactory.createCompoundBorder(  new LineBorder(Color.lightGray),
