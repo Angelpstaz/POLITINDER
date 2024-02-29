@@ -33,14 +33,15 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     public List<PersonaDTO> readAll() throws Exception {
         List<PersonaDTO> lst = new ArrayList<>();
         String query="SELECT IdPersona"
-                        +"IdPersona    "
-                        +"IdPersonaRol "
-                        +"IdPersonaSexo"
-                        +"Nombre       "
-                        +"Observacion  "
-                        +"Estado       "
-                        +"FechaCrea    "
-                        +"FechaModifica ";
+                        +",IdPersona    "
+                        +",IdPersonaRol "
+                        +",IdPersonaSexo"
+                        +",Nombre       "
+                        +",Observacion  "
+                        +",Estado       "
+                        +",FechaCrea    "
+                        +",FechaModifica "
+                        +"FROM Persona ";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -68,14 +69,16 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     public PersonaDTO read(Integer id) throws Exception {
         PersonaDTO pd= new PersonaDTO();
         String query="SELECT IdPersona"
-                        +"IdPersona    "
-                        +"IdPersonaRol "
-                        +"IdPersonaSexo"
-                        +"Nombre       "
-                        +"Observacion  "
-                        +"Estado       "
-                        +"FechaCrea    "
-                        +"FechaModifica ";
+                        +",IdPersona    "
+                        +",IdPersonaRol "
+                        +",IdPersonaSexo"
+                        +",Nombre       "
+                        +",Observacion  "
+                        +",Estado       "
+                        +",FechaCrea    "
+                        +",FechaModifica "
+                        +"FROM Persona "
+                        +"WHERE Estado ='A' AND IdPersona= "+id.toString();
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -100,13 +103,13 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     public boolean update(PersonaDTO entity) throws Exception {
          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();
-        String query= "UPDATE PersonaRol SET Nombre = ?, FechaModifica = ? WHERE IdPersonaRol = ?";
+        String query= "UPDATE Persona SET Nombre = ?, FechaModifica = ? WHERE IdPersona = ?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
             ps.setString(1,entity.getNombre());
             ps.setString(2,dtf.format(now));
-            ps.setInt(3,entity.getIdPersonaRol());
+            ps.setInt(3,entity.getIdPersona());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -116,7 +119,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query="UPDATE PersonaRol SET Estado=? WHERE IdPersonaRol=?";
+        String query="UPDATE Persona SET Estado=? WHERE IdPersona=?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
@@ -131,7 +134,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query= "SELECT COUNT(IdPersonaRol) TotalReg FROM PersonaRol"
+        String query= "SELECT COUNT(IdPersona) TotalReg FROM Persona"
         + "WHERE Estado='A'";
         try {
            Connection conn= openConnection();
@@ -146,8 +149,4 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
        }
        return  0 ;
     }
-
-
-
-
 }
