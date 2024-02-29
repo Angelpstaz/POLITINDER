@@ -11,7 +11,7 @@ public class MainPanel extends JPanel{
     public MainPanel(){
         customizeComponent();
     }
-
+//sad
     private void customizeComponent() {
         try {
             ImageIcon imageIcon = new ImageIcon(Style.URL_MAIN);
