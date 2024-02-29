@@ -11,6 +11,7 @@ import DataAccessComponent.DTO.RegaloTipoDTO;
 import DataAccessComponent.DTO.RelacionTipoDTO;
 import UserInterface.FrameMenuPantallas;
 import UserInterface.Form.SplashScreenForm;
+import UserInterface.Form.FramePersona;
 
 public class App {
     public static void main(String[] args) throws Exception {

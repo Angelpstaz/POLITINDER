@@ -16,7 +16,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     
     @Override
     public boolean create(PersonaDTO entity) throws Exception {
-        String query="INSERT INTO PersonaRol(Nombre) VALUES(?)";
+        String query="INSERT INTO Persona(Nombre) VALUES(?)";
         try {
             Connection conn=openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
@@ -149,4 +149,33 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
        }
        return  0 ;
     }
+    // public  PersonaDTO readBy(Integer id) throws Exception {
+    //     PersonaDTO pd = new  PersonaDTO();
+    //     String query =" SELECT IdSexo  " 
+    //                  +" ,Nombre        " 
+    //                  +" ,Estado        " 
+    //                  +" ,FechaCrea     " 
+    //                  +" ,FechaModifica "
+    //                  +" FROM    SEXO   "
+    //                  +" WHERE   Estado ='A' AND IdSexo =   "+ id.toString() ;
+    //     try {
+    //         Connection conn = openConnection();         // conectar a DB     
+    //         Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+    //         ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+    //         while (rs.next()) {
+    //             pd = new PersonaDTO(rs.getInt(1)
+    //                                 ,rs.getInt(2)
+    //                                 ,rs.getInt(3)
+    //                                 ,rs.getString(4)
+    //                                 ,rs.getString(5)
+    //                                 ,rs.getString(6)
+    //                                 ,rs.getString(7)
+    //                                 ,rs.getString(8));
+    //         }
+    //     } 
+    //     catch (SQLException e) {
+    //         throw e;
+    //     }
+    //     return pd;
+    // }
 }

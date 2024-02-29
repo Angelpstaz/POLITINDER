@@ -36,15 +36,15 @@ public abstract class Style {
                                                     new EmptyBorder(5, 5, 5, 5));
     }
 
-    // public static final void showMsg(String msg){
-    //     JOptionPane.showMessageDialog(null, msg, "POLITINDER", JOptionPane.INFORMATION_MESSAGE);
-    // }
-    // public static final void showMsgError(String msg){
-    //     JOptionPane.showMessageDialog(null, msg, "POLITINDER", JOptionPane.OK_OPTION);
-    // }
+    public static final void showMsg(String msg){
+        JOptionPane.showMessageDialog(null, msg, "POLITINDER", JOptionPane.INFORMATION_MESSAGE);
+    }
+    public static final void showMsgError(String msg){
+        JOptionPane.showMessageDialog(null, msg, "💀 POLITINDER", JOptionPane.OK_OPTION);
+    }
 
-    // public static final boolean showConfirmYesNo(String msg){
-    //     return (JOptionPane.showConfirmDialog(null, msg, "POLITINDER", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
-    // }
+    public static final boolean showConfirmYesNo(String msg){
+        return (JOptionPane.showConfirmDialog(null, msg, "😞 POLITINDER", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
+    }
 }
 

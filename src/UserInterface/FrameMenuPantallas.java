@@ -1,6 +1,9 @@
 package UserInterface;
 
 import javax.swing.*;
+
+import UserInterface.Form.FramePersona;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +39,7 @@ public class FrameMenuPantallas extends JFrame {
                 handleRegaloTipo();
             }
         });
+        
         frame.getContentPane().add(regaloTipoButton);
 
         personaRolButton = new JButton("PersonaRol");
@@ -57,12 +61,8 @@ public class FrameMenuPantallas extends JFrame {
         frame.getContentPane().add(personaSexoButton);
 
         personaButton = new JButton("Persona");
-        personaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handlePersona();
-            }
-        });
+        /////////////////////
+        personaButton.addActionListener( e -> new FramePersona().createAndShowGUI());
         frame.getContentPane().add(personaButton);
 
         regaloButton = new JButton("Regalo");
@@ -145,5 +145,13 @@ public class FrameMenuPantallas extends JFrame {
 
     private void handleRegaloEnvio() {
         // Implement interaction for RegaloEnvio
+    }
+    private void setFrame(JFrame formularioPanel) {
+        Container container = getContentPane();
+        container.remove(frame);
+        frame = formularioPanel;
+        container.add(frame, BorderLayout.CENTER);
+        revalidate();
+        repaint();
     }
 }

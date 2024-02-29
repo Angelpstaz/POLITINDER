@@ -1,7 +1,7 @@
 package DataAccessComponent.DTO;
 
 public class PersonaDTO {
-    private int     idPersona       ;      
+    private Integer idPersona       ;      
     private int     idPersonaRol    ;
     private int     idPersonaSexo   ;
     private String  nombre          ;
@@ -17,14 +17,14 @@ public class PersonaDTO {
         this.nombre = nombre;
     }
 
-    public PersonaDTO(   int    idPersona     
-                        ,int    idPersonaRol 
-                        ,int    idPersonaSexo
-                        ,String nombre       
-                        ,String observacion  
-                        ,String estado       
-                        ,String fechaCrea    
-                        ,String fechaModifica) {
+    public PersonaDTO(   Integer    idPersona     
+                        ,int        idPersonaRol 
+                        ,int        idPersonaSexo
+                        ,String     nombre       
+                        ,String     observacion  
+                        ,String     estado       
+                        ,String     fechaCrea    
+                        ,String     fechaModifica) {
 
         this.idPersona       = idPersona    ;
         this.idPersonaRol    = idPersonaRol ;
@@ -36,7 +36,7 @@ public class PersonaDTO {
         this.fechaModifica   = fechaModifica;
     }
 
-    public int getIdPersona() {
+    public Integer getIdPersona() {
         return idPersona;
     }
 
