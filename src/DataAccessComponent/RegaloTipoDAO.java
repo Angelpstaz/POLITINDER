@@ -39,9 +39,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
                   +", FechaCrea     "
                   +", FechaModifica " //DTO
                   +" FROM     RegaloTipo "
-                  //Test by Angel
                   +" WHERE    Estado ='A'";;
-                  //Test By Angel
                   //LEEMOS LA TABLA
      try{
          Connection conn = openConnection();  

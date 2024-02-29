@@ -28,7 +28,7 @@ public abstract class Style {
     public static final Cursor CURSOR_DEFAULT = new Cursor(Cursor.DEFAULT_CURSOR);
 
     public static final URL URL_MAIN  = Style.class.getResource("/UserInterface/Resource/fondo2.png");
-    public static final URL URL_LOGO  = Style.class.getResource("/UserInterface/Resource/fondo2.png");
+    public static final URL URL_LOGO  = Style.class.getResource("/UserInterface/Resource/Logo.png");
     public static final URL URL_SPLASH= Style.class.getResource("/UserInterface/Resource/fondo2.png");
 
     public static final CompoundBorder createBorderRect(){

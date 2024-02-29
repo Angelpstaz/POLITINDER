@@ -16,9 +16,10 @@ import javax.swing.JPanel;
 public class FrameMenuPrincipal extends JPanel {
     public  PatButton   
             btnHome   = new PatButton("HOME"),
-            btnRegaloTipo     = new PatButton("REGALO TIPO"),
-            btnPersonaRol    = new PatButton("PERSONA ROL"),
-            btnPersonaSexo    = new PatButton("PERSONA SEXO");
+            btnRegaloTipo       = new PatButton("REGALO TIPO"),
+            btnPersonaRol       = new PatButton("PERSONA ROL"),
+            btnPersonaSexo      = new PatButton("PERSONA SEXO"),
+            btnPersona          = new PatButton("PERSONA");
 
     public FrameMenuPrincipal(){
         customizeComponent();
@@ -42,6 +43,7 @@ public class FrameMenuPrincipal extends JPanel {
         add(btnRegaloTipo);
         add(btnPersonaRol);
         add(btnPersonaSexo);
+        add(btnPersona);
 
         // add-copyright
         add(new JLabel("\u00A9 2024 POLITINDER"));
