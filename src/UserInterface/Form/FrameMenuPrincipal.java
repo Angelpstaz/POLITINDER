@@ -22,7 +22,8 @@ public class FrameMenuPrincipal extends JPanel {
             btnRelacionTipo     = new PatButton("RELACION TIPO"),
             btnPersonaRol    = new PatButton("PERSONA ROL"),
             btnPersonaSexo    = new PatButton("PERSONA SEXO"),
-            btnPersona          = new PatButton("PERSONA");
+            btnPersona          = new PatButton("PERSONA"),
+            btnRegaloEnvio         = new PatButton("REGALO ENVIO");
 
 
     public FrameMenuPrincipal(){
@@ -51,6 +52,7 @@ public class FrameMenuPrincipal extends JPanel {
         add(btnPersonaRol);
         add(btnPersonaSexo);
         add(btnPersona);
+        add(btnRegaloEnvio);
         
 
         // add-copyright

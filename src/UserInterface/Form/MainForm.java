@@ -20,6 +20,8 @@ public class MainForm extends JFrame {
         pnlMenu.btnCita.addActionListener(e -> setPanel(new CitaPanel()));
         pnlMenu.btnRelacionTipo.addActionListener(e -> setPanel(new RelacionTipoPanel()));
         pnlMenu.btnPersona.addActionListener(e ->  setPanel(new PersonaPanel()));
+        pnlMenu.btnPersonaSexo.addActionListener(e ->  setPanel(new PersonaSexoPanel()));
+        pnlMenu.btnRegaloEnvio.addActionListener(e ->  setPanel(new RegaloEnvioPanel()));
     }
 
     private void setPanel(JPanel panel) {

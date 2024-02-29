@@ -7,9 +7,7 @@ public class PersonaSexoDTO {
     private String Estado;         
     private String FechaCrea;      
     private String FechaModifica;
-    public PersonaSexoDTO(String nombre) {
-        this.Nombre = nombre;
-    }
+
     public PersonaSexoDTO() {
     }
     public PersonaSexoDTO(int idPersonaSexo, String nombre, String observacion, String estado, String fechaCrea,
@@ -57,16 +55,6 @@ public class PersonaSexoDTO {
     public void setFechaModifica(String fechaModifica) {
         FechaModifica = fechaModifica;
     }
-    @Override
-    public String toString() {
-        return "\n"+getClass().getName()
-                    +"\nIdPersonaSexo   : "+ getIdPersonaSexo()    
-                    +"\nNombre          : "+ getNombre()         
-                    +"\nObservacion     : "+ getObservacion()    
-                    +"\nEstado          : "+ getEstado()         
-                    +"\nFechaCrea       : "+ getFechaCrea()      
-                    +"\nFechaModifica   : "+ getFechaModifica();  
-    }  
-    
+   
     
 }

@@ -24,7 +24,7 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e;
+            throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
         }
     }
 
@@ -122,21 +122,7 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query= "SELECT COUNT(IdPersonaSexo) TotalReg FROM PersonaSexo"
-        + "WHERE Estado='A'";
-        try {
-           Connection conn= openConnection();
-           Statement st = conn.createStatement();
-           ResultSet rs = st.executeQuery(query);
-           while (rs.next()) {
-               return rs.getInt(1);
-
-           }
-        } catch (Exception e) {
-           throw e;
-       }
-       return  0 ;
+        throw new UnsupportedOperationException("Unimplemented method 'getMaxRow'");
     }
-
     
 }

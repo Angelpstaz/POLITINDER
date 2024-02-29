@@ -109,6 +109,11 @@ VALUES
     ,(2, 'Cupcakes Vainilla (Media docena)', 25, 9)
     ,(2, 'Cupcakes Red Velvet (Media docena)', 25, 9);
 
+INSERT INTO Cita
+(IdPersona1, IdPersona2, FechaCita)
+VALUES
+(8,9, 'now' );
+
 WITH RECURSIVE
   contador(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM contador LIMIT 300
   )
@@ -134,3 +139,5 @@ x
                                 strftime('%s', '2024-01-16 00:00:00'))
                    ),
                 'unixepoch')  from contadordos;
+
+
