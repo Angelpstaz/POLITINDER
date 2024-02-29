@@ -33,14 +33,14 @@ public class RelacionDAO extends SQLiteDataHelper implements IDAO<RelacionDTO> {
     public List<RelacionDTO> readAll() throws Exception {
         List <RelacionDTO> lst= new ArrayList<>();
         String  query = "SELECT  IdRelacion              "           
-                                +",IdRelacionTipo;       "
-                                +",IdPersona1;           "
-                                +",IdPersona2;           "
-                                +",Observacion;          "
-                                +",Estado;               "
-                                +",FechaInicioRelacion;  "
-                                +",FechaCrea;            "
-                                +",FechaModifica;        "
+                                +",IdRelacionTipo       "
+                                +",IdPersona1           "
+                                +",IdPersona2           "
+                                +",Observacion         "
+                                +",Estado               "
+                                +",FechaInicioRelacion  "
+                                +",FechaCrea            "
+                                +",FechaModifica        "
                                 +"FROM  Relacion         ";
         try {
             Connection conn= openConnection();

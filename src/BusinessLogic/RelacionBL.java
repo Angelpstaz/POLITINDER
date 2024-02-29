@@ -7,13 +7,13 @@ import DataAccessComponent.DTO.RelacionDTO;
 
 public class RelacionBL {
     private RelacionDTO rldt;
-    private RelacionDAO rlda;
+    private RelacionDAO rlda = new RelacionDAO();
     public RelacionBL() {
     }
-    public List<RelacionDTO> readAll()throws Exception{
+    public List<RelacionDTO> getAll()throws Exception{
         return rlda.readAll();
     }
-    public RelacionDTO read (int IdRelacion) throws Exception{
+    public RelacionDTO getByIdRelacion (int IdRelacion) throws Exception{
         rldt= rlda.readBy(IdRelacion);
         return  rldt;
     }
