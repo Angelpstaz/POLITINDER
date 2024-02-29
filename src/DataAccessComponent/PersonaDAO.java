@@ -33,13 +33,13 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     public List<PersonaDTO> readAll() throws Exception {
         List<PersonaDTO> lst = new ArrayList<>();
         String query="SELECT IdPersona"
-                        +",IdPersona    "
-                        +",IdPersonaRol "
-                        +",IdPersonaSexo"
-                        +",Nombre       "
-                        +",Observacion  "
-                        +",Estado       "
-                        +"FFechaCrea    "
+                        +"IdPersona    "
+                        +"IdPersonaRol "
+                        +"IdPersonaSexo"
+                        +"Nombre       "
+                        +"Observacion  "
+                        +"Estado       "
+                        +"FechaCrea    "
                         +"FechaModifica ";
         try {
             Connection conn=openConnection();
@@ -67,15 +67,15 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     @Override
     public PersonaDTO read(Integer id) throws Exception {
         PersonaDTO pd= new PersonaDTO();
-        String  query="SELECT IdPersonaRol"
-                        +",IdPersonaRolPadre" 
-                        +",Nombre        " 
-                        +",Observacion   " 
-                        +",Estado        " 
-                        +",FechaCrea     " 
-                        +",FechaModifica "     
-                        +"FROM PersonaRol "
-                        +"WHERE Estado ='A' AND IdPersonaRol= "+id.toString();
+        String query="SELECT IdPersona"
+                        +"IdPersona    "
+                        +"IdPersonaRol "
+                        +"IdPersonaSexo"
+                        +"Nombre       "
+                        +"Observacion  "
+                        +"Estado       "
+                        +"FechaCrea    "
+                        +"FechaModifica ";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
