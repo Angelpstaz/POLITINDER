@@ -114,6 +114,7 @@ CREATE TABLE Cita(
         ,IdPersona1             INTEGER NOT NULL REFERENCES Persona(IdPersona)
         ,IdPersona2             INTEGER NOT NULL REFERENCES Persona(IdPersona)
         ,FechaCita              DATE NOT NULL
+        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 );

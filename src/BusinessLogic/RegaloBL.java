@@ -7,7 +7,7 @@ import DataAccessComponent.DTO.RegaloDTO;
 
 public class RegaloBL {
     private RegaloDTO oRegaloDTO;
-    private RegaloDAO oRegaloDAO;
+    private RegaloDAO oRegaloDAO = new RegaloDAO();
 
     public List<RegaloDTO> readAll()throws Exception{
         return oRegaloDAO.readAll();

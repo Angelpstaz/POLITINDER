@@ -4,6 +4,7 @@ public class RegaloDTO {
     private int IdRegalo;
     private int IdRegaloTipo;
     private String Nombre;
+    private String Observacion;
     private String Stock;
     private int Precio;
     private String Estado;
@@ -14,11 +15,12 @@ public class RegaloDTO {
     }
     public RegaloDTO() {
     }
-    public RegaloDTO(int idRegalo, int idRegaloTipo, String nombre, String stock, int precio, String estado, String fechaCrea,
+    public RegaloDTO(int idRegalo, int idRegaloTipo, String nombre, String observacion, String stock, int precio, String estado, String fechaCrea,
             String fechaModifica) {
         this.IdRegalo = idRegalo;
         this.IdRegaloTipo = idRegaloTipo;
         this.Nombre = nombre;
+        this.Observacion = observacion;
         this.Stock = stock;
         this.Precio = precio;
         this.Estado = estado;
@@ -42,6 +44,12 @@ public class RegaloDTO {
     }
     public void setNombre(String nombre) {
         Nombre = nombre;
+    }
+    public String getObservacion() {
+        return Observacion;
+    }
+    public void setObservacion(String observacion) {
+        Observacion = observacion;
     }
     public String getStock() {
         return Stock;

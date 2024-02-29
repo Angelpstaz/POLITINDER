@@ -2,18 +2,19 @@ package BusinessLogic;
 
 import java.util.List;
 
+import DataAccessComponent.RegaloTipoDAO;
 import DataAccessComponent.RelacionTipoDAO;
 import DataAccessComponent.DTO.RelacionTipoDTO;
 
 public class RelacionTipoBL {
     private RelacionTipoDTO oRelacionTipoDTO;
-    private RelacionTipoDAO oRelacionTipoDAO;
+    private RelacionTipoDAO oRelacionTipoDAO = new RelacionTipoDAO();
 
     public List<RelacionTipoDTO> readAll()throws Exception{
         return oRelacionTipoDAO.readAll();
     }
-    public RelacionTipoDTO read (int IdRelacionTipo) throws Exception{
-        oRelacionTipoDTO= oRelacionTipoDAO.read(IdRelacionTipo);
+    public RelacionTipoDTO read  (int IdRelacionTipo) throws Exception{
+        oRelacionTipoDTO= oRelacionTipoDAO.readBy(IdRelacionTipo);
         return  oRelacionTipoDTO;
     }
     public boolean create(RelacionTipoDTO oRelacionTipoDTO)throws Exception{
