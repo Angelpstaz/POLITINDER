@@ -14,32 +14,46 @@ import DataAccessComponent.DTO.PersonaDTO;
 
 public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     
+    @Override
+    public boolean create(PersonaDTO entity) throws Exception {
+        String query="INSERT INTO PersonaRol(Nombre) VALUES(?)";
+        try {
+            Connection conn=openConnection();
+            PreparedStatement  pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,entity.getNombre());
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
     
-
+    
     @Override
     public List<PersonaDTO> readAll() throws Exception {
         List<PersonaDTO> lst = new ArrayList<>();
-        String query="SELECT IdPersonaRol "
-                        +",IdPersonaRolPadre"
-                        +",Nombre         "
-                        +",Observacion    "
-                        +",Estado         "
-                        +",FechaCrea      "
-                        +",FechaModifica  "
-                        +"FROM PersonaRol ";
+        String query="SELECT IdPersona"
+                        +",IdPersona    "
+                        +",IdPersonaRol "
+                        +",IdPersonaSexo"
+                        +",Nombre       "
+                        +",Observacion  "
+                        +",Estado       "
+                        +"FFechaCrea    "
+                        +"FechaModifica ";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery(); 
             while(rs.next()) {
-                PersonaDTO pdto = new PersonaDTO(0
-                                                    , 0
-                                                    , 0
-                                                    , query
-                                                    , query
-                                                    , query
-                                                    , query
-                                                    , query);                     
+                PersonaDTO pdto = new PersonaDTO(rs.getInt(1)
+                                                ,rs.getInt(2)
+                                                ,rs.getInt(3)
+                                                ,rs.getString(4)
+                                                ,rs.getString(5)
+                                                ,rs.getString(6)
+                                                ,rs.getString(7)
+                                                ,rs.getString(8));                     
                                    
             lst.add(pdto);
 
@@ -64,15 +78,22 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
                         +"WHERE Estado ='A' AND IdPersonaRol= "+id.toString();
         try {
             Connection conn=openConnection();
-            Statement   stm=conn.createStatement();
-            ResultSet   rs=stm.executeQuery(query);
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery(); 
             while (rs.next()) {
-                pd = new PersonaDTO(pd.getInt, 0, 0, query, query, query, query, query)
-                                                }            
-            } catch (Exception e) {
-                throw e;
-            }
-            return pd;
+                pd = new PersonaDTO( rs.getInt(1)
+                                    ,rs.getInt(2)
+                                    ,rs.getInt(3)
+                                    ,rs.getString(4)
+                                    ,rs.getString(5)
+                                    ,rs.getString(6)
+                                    ,rs.getString(7)
+                                    ,rs.getString(8));
+            }            
+        } catch (Exception e) {
+            throw e;
+        }
+        return pd;
     }
 
     @Override
@@ -129,17 +150,4 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
 
 
 
-    @Override
-    public boolean create(PersonaDTO entity) throws Exception {
-        String query="INSERT INTO PersonaRol(Nombre) VALUES(?)";
-        try {
-            Connection conn=openConnection();
-            PreparedStatement  pstmt = conn.prepareStatement(query);
-            pstmt.setString(1,entity.getNombre());
-            pstmt.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
 }
