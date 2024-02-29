@@ -16,7 +16,7 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
 
     @Override
     public boolean create(PersonaSexoDTO entity) throws Exception {
-        String query="INSERT INTO PersonaSexo(Nombre) VALUES(?)";
+        String query = "INSERT INTO PersonaSexo(Nombre) VALUES (?)";
         try {
             Connection conn=openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
@@ -37,7 +37,8 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
                         +",Estado         "
                         +",FechaCrea      "
                         +",FechaModifica  "
-                        +"FROM PersonaSexo ";
+                        +"FROM PersonaSexo "
+                        +" WHERE    Estado ='A'";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);

@@ -1,13 +1,24 @@
 package DataAccessComponent.DTO;
 
 public class RegaloTipoDTO {
-    private int IdRegaloTipo ;
-    private String Nombre       ;
-    private String Observacion  ;
-    private String Estado       ;
-    private String FechaCrea    ;
-    private String FechaModifica;
-    public RegaloTipoDTO(int idRegaloTipo
+    @Override
+    public String toString() {
+        return "\n"+getClass().getName()
+        +"\nIdRegaloTipo   :"+ getIdRegaloTipo() 
+        +"\nNombre         :"+ getNombre()       
+        +"\nObservacion    :"+ getObservacion()  
+        +"\nEstado         :"+ getEstado()       
+        +"\nFechaCrea      :"+ getFechaCrea()    
+        +"\nFechaModifica  :"+ getFechaModifica();
+    }
+   
+    private Integer IdRegaloTipo ;
+    private String  Nombre       ;
+    private String  Observacion  ;
+    private String  Estado       ;
+    private String  FechaCrea    ;
+    private String  FechaModifica;
+    public RegaloTipoDTO(Integer idRegaloTipo
                         ,String nombre 
                         ,String observacion 
                         ,String estado 
@@ -23,10 +34,13 @@ public class RegaloTipoDTO {
     public RegaloTipoDTO() {
         //TODO Auto-generated constructor stub
     }
-    public int getIdRegaloTipo() {
+    public RegaloTipoDTO(String text) {
+        //TODO Auto-generated constructor stub
+    }
+    public Integer getIdRegaloTipo() {
         return IdRegaloTipo;
     }
-    public void setIdRegaloTipo(int idRegaloTipo) {
+    public void setIdRegaloTipo(Integer idRegaloTipo) {
         IdRegaloTipo = idRegaloTipo;
     }
     public String getNombre() {

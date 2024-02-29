@@ -11,7 +11,7 @@ import UserInterface.Style;
 public class MainForm extends JFrame {
     FrameMenuPrincipal pnlMenu = new FrameMenuPrincipal();
     JPanel pnlMain = new MainPanel();
-
+    //Este es un panel main
     public MainForm(String titleApp) {
         customizeComponent(titleApp);
         pnlMenu.btnHome.addActionListener(e -> setPanel(new MainPanel()));
@@ -43,4 +43,5 @@ public class MainForm extends JFrame {
         container.add(pnlMain, BorderLayout.CENTER);
         setVisible(true);
     }
+
 }

@@ -7,9 +7,9 @@ public class PersonaSexoDTO {
     private String Estado;         
     private String FechaCrea;      
     private String FechaModifica;
-    public PersonaSexoDTO(String nombre) {
-        this.Nombre = nombre;
-    }
+    // public PersonaSexoDTO(String nombre) {
+    //     this.Nombre = nombre;
+    // }
     public PersonaSexoDTO() {
     }
     public PersonaSexoDTO(int idPersonaSexo, String nombre, String observacion, String estado, String fechaCrea,
