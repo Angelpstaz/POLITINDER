@@ -2,7 +2,6 @@ package BusinessLogic;
 
 import java.util.List;
 
-import DataAccessComponent.RegaloTipoDAO;
 import DataAccessComponent.RelacionTipoDAO;
 import DataAccessComponent.DTO.RelacionTipoDTO;
 
