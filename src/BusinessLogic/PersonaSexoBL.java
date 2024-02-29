@@ -13,7 +13,7 @@ public class PersonaSexoBL {
         return psda.readAll();
     }
     public PersonaSexoDTO read (int IdRelacion) throws Exception{
-        psdt= psda.read(IdRelacion);
+        psdt= psda.readBy(IdRelacion);
         return  psdt;
     }
     public boolean create(PersonaSexoDTO psdto)throws Exception{

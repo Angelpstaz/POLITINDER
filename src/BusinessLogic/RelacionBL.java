@@ -14,7 +14,7 @@ public class RelacionBL {
         return rlda.readAll();
     }
     public RelacionDTO read (int IdRelacion) throws Exception{
-        rldt= rlda.read(IdRelacion);
+        rldt= rlda.readBy(IdRelacion);
         return  rldt;
     }
     public boolean create(RelacionDTO rldto)throws Exception{

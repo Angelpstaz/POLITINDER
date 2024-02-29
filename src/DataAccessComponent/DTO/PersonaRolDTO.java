@@ -28,13 +28,13 @@ public class PersonaRolDTO {
 
     public PersonaRolDTO(int idPersonaRol, int idPersonaRolPadre, String nombre, String observacion, String estado,
     String fechaCrea, String fechaModifica) {
-    IdPersonaRol = idPersonaRol;
-    IdPersonaRolPadre = idPersonaRolPadre;
-    Nombre = nombre;
-    Observacion = observacion;
-    Estado = estado;
-    FechaCrea = fechaCrea;
-    FechaModifica = fechaModifica;
+        IdPersonaRol = idPersonaRol;
+        IdPersonaRolPadre = idPersonaRolPadre;
+        Nombre = nombre;
+        Observacion = observacion;
+        Estado = estado;
+        FechaCrea = fechaCrea;
+        FechaModifica = fechaModifica;
     }
 
     public int getIdPersonaRol() {
