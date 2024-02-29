@@ -134,18 +134,19 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query = "SELECT COUNT(IdPersona) AS TotalReg FROM Persona WHERE Estado='A'";
-        try (Connection conn = openConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query)) {
+        String query= "SELECT COUNT(IdPersona) TotalReg FROM Persona"
+        + "WHERE Estado='A'";
+        try {
+           Connection conn= openConnection();
+           Statement st = conn.createStatement();
+           ResultSet rs = st.executeQuery(query);
+           while (rs.next()) {
+               return rs.getInt(1);
 
-            while (rs.next()) {
-                return rs.getInt("TotalReg");
-            }
+           }
         } catch (Exception e) {
-            throw e;
-        }
-        return 0;
+           throw e;
+       }
+       return  0 ;
     }
-
 }

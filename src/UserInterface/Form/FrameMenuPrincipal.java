@@ -16,7 +16,10 @@ import javax.swing.JPanel;
 public class FrameMenuPrincipal extends JPanel {
     public  PatButton   
             btnHome   = new PatButton("HOME"),
+            btnRegalo           = new PatButton("REGALO"),
             btnRegaloTipo       = new PatButton("REGALO TIPO"),
+            btnCita             = new PatButton("CITA"),
+            btnRelacionTipo     = new PatButton("RELACION TIPO"),
             btnPersonaRol       = new PatButton("PERSONA ROL"),
             btnPersonaSexo      = new PatButton("PERSONA SEXO"),
             btnPersona          = new PatButton("PERSONA");
@@ -40,7 +43,10 @@ public class FrameMenuPrincipal extends JPanel {
 
         // add-botones
         add(btnHome);
+        add(btnRegalo);
         add(btnRegaloTipo);
+        add(btnCita);
+        add(btnRelacionTipo);
         add(btnPersonaRol);
         add(btnPersonaSexo);
         add(btnPersona);
