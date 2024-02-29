@@ -13,7 +13,7 @@ public class RegaloBL {
         return oRegaloDAO.readAll();
     }
     public RegaloDTO read (int IdRegalo) throws Exception{
-        oRegaloDTO= oRegaloDAO.read(IdRegalo);
+        oRegaloDTO= oRegaloDAO.readBy(IdRegalo);
         return  oRegaloDTO;
     }
     public boolean create(RegaloDTO oRegaloDTO)throws Exception{

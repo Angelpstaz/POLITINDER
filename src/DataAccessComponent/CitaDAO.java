@@ -10,17 +10,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DataAccessComponent.DTO.RegaloDTO;
+import DataAccessComponent.DTO.CitaDTO;
 
-public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
+public class CitaDAO extends SQLiteDataHelper implements IDAO<CitaDTO>{
 
     @Override
-    public boolean create(RegaloDTO entity) throws Exception {
-        String query="INSERT INTO Regalo(Nombre) VALUES(?)";
+    public boolean create(CitaDTO entity) throws Exception {
+        String query="INSERT INTO Cita(Nombre) VALUES(?)";
         try {
             Connection conn=openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
-            pstmt.setString(1,entity.getNombre());
+            pstmt.setString(1,entity.getFechaCita());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -29,31 +29,29 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
     }
 
     @Override
-    public List<RegaloDTO> readAll() throws Exception {
-        List<RegaloDTO> lst = new ArrayList<>();
-        String query="SELECT IdRegalo "
-                        +",IdRegaloTipo         "
-                        +",Nombre         "
-                        +",Stock    "
-                        +",Precio    "
+    public List<CitaDTO> readAll() throws Exception {
+        List<CitaDTO> lst = new ArrayList<>();
+        String query="SELECT IdCita "
+                        +",IdPersona1         "
+                        +",IdPersona2         "
+                        +",FechaCita         "
                         +",Estado         "
                         +",FechaCrea      "
                         +",FechaModifica  "
-                        +"FROM Regalo ";
+                        +"FROM Cita ";
         try {
             Connection conn=openConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                RegaloDTO oRegaloDTO = new RegaloDTO(rs.getInt(1)
+                CitaDTO oCitaDTO = new CitaDTO(rs.getInt(1)
                                         ,rs.getInt(2)
-                                        ,rs.getString(3)
+                                        ,rs.getInt(3)
                                         ,rs.getString(4)
-                                        ,rs.getInt(5)
+                                        ,rs.getString(5)
                                         ,rs.getString(6)
-                                        ,rs.getString(7)
-                                        ,rs.getString(8));
-            lst.add(oRegaloDTO);
+                                        ,rs.getString(7));
+            lst.add(oCitaDTO);
 
             }
         } catch (Exception e) {
@@ -63,49 +61,47 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
     }
 
     @Override
-    public RegaloDTO readBy(Integer id) throws Exception {
-        RegaloDTO oRegaloDTO= new RegaloDTO();
-        String  query="SELECT IdRegalo"
-                        +",IdRegaloTipo        "
-                        +",Nombre        "
-                        +",Stock   "
-                        +",Precio   "
+    public CitaDTO readBy(Integer id) throws Exception {
+        CitaDTO oCitaDTO= new CitaDTO();
+        String  query="SELECT IdCita"
+                        +",IdPersona1        "
+                        +",IdPersona2        "
+                        +",FechaCita        "
                         +",Estado        "
                         +",FechaCrea     "
                         +",FechaModifica "
-                        +"FROM Regalo "
-                        +"WHERE Estado ='A' AND IdRegalo= "+id.toString();
+                        +"FROM Cita "
+                        +"WHERE Estado ='A' AND IdCita= "+id.toString();
         try {
             Connection conn=openConnection();
             Statement   stm=conn.createStatement();
             ResultSet   rs=stm.executeQuery(query);
             while (rs.next()) {
-                oRegaloDTO = new RegaloDTO(rs.getInt(1)
+                oCitaDTO = new CitaDTO(rs.getInt(1)
                         ,rs.getInt(2)
-                        ,rs.getString(3)
+                        ,rs.getInt(3)
                         ,rs.getString(4)
-                        ,rs.getInt(5)
+                        ,rs.getString(5)
                         ,rs.getString(6)
-                        ,rs.getString(7)
-                        ,rs.getString(8));
+                        ,rs.getString(7));
                         }
             } catch (Exception e) {
                 throw e;
             }
-            return oRegaloDTO;
+            return oCitaDTO;
     }
 
     @Override
-    public boolean update(RegaloDTO entity) throws Exception {
+    public boolean update(CitaDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query= "UPDATE Regalo SET Nombre = ?, FechaModifica = ? WHERE IdRegalo = ?";
+        String query= "UPDATE Cita SET Nombre = ?, FechaModifica = ? WHERE IdCita = ?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
-            ps.setString(1,entity.getNombre());
+            ps.setString(1,entity.getFechaCita());
             ps.setString(2,dtf.format(now));
-            ps.setInt(3,entity.getIdRegalo());
+            ps.setInt(3,entity.getIdCita());
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -115,7 +111,7 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query="UPDATE Regalo SET Estado=? WHERE IdRegalo=?";
+        String query="UPDATE Cita SET Estado=? WHERE IdCita=?";
         try {
             Connection conn=openConnection();
             PreparedStatement ps=conn.prepareStatement(query);
@@ -130,7 +126,7 @@ public class RegaloDAO extends SQLiteDataHelper implements IDAO<RegaloDTO>{
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query= "SELECT COUNT(IdRegalo) TotalReg FROM Regalo"
+        String query= "SELECT COUNT(IdCita) TotalReg FROM Cita"
         + "WHERE Estado='A'";
         try {
             Connection conn= openConnection();

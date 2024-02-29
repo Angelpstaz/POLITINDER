@@ -66,7 +66,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     }
 
     @Override
-    public PersonaDTO read(Integer id) throws Exception {
+    public PersonaDTO readBy(Integer id) throws Exception {
         PersonaDTO pd= new PersonaDTO();
         String query="SELECT IdPersona"
                         +",IdPersona    "
@@ -149,3 +149,4 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
        }
        return  0 ;
     }
+}

@@ -2,6 +2,7 @@ package DataAccessComponent.DTO;
 
 public class RegaloDTO {
     private int IdRegalo;
+    private int IdRegaloTipo;
     private String Nombre;
     private String Stock;
     private int Precio;
@@ -13,9 +14,10 @@ public class RegaloDTO {
     }
     public RegaloDTO() {
     }
-    public RegaloDTO(int idRegalo, String nombre, String stock, int precio, String estado, String fechaCrea,
+    public RegaloDTO(int idRegalo, int idRegaloTipo, String nombre, String stock, int precio, String estado, String fechaCrea,
             String fechaModifica) {
         this.IdRegalo = idRegalo;
+        this.IdRegaloTipo = idRegaloTipo;
         this.Nombre = nombre;
         this.Stock = stock;
         this.Precio = precio;
@@ -28,6 +30,12 @@ public class RegaloDTO {
     }
     public void setIdRegalo(int idRegalo) {
         IdRegalo = idRegalo;
+    }
+    public int getIdRegaloTipo() {
+        return IdRegaloTipo;
+    }
+    public void setIdRegaloTipo(int idRegaloTipo) {
+        IdRegaloTipo = idRegaloTipo;
     }
     public String getNombre() {
         return Nombre;
@@ -69,6 +77,7 @@ public class RegaloDTO {
     public String toString() {
         return "\n"+getClass().getName()
                     +"\nIdRegalo   : "+ getIdRegalo()
+                    +"\nIdRegaloTipo   : "+ getIdRegaloTipo()
                     +"\nNombre          : "+ getNombre()
                     +"\nStock     : "+ getStock()
                     +"\nPrecio     : "+ getPrecio()
