@@ -21,7 +21,9 @@ public class FrameMenuPrincipal extends JPanel {
             btnCita     = new PatButton("CITA"),
             btnRelacionTipo     = new PatButton("RELACION TIPO"),
             btnPersonaRol    = new PatButton("PERSONA ROL"),
-            btnPersonaSexo    = new PatButton("PERSONA SEXO");
+            btnPersonaSexo    = new PatButton("PERSONA SEXO"),
+            btnPersona          = new PatButton("PERSONA");
+
 
     public FrameMenuPrincipal(){
         customizeComponent();
@@ -48,6 +50,8 @@ public class FrameMenuPrincipal extends JPanel {
         add(btnRelacionTipo);
         add(btnPersonaRol);
         add(btnPersonaSexo);
+        add(btnPersona);
+        
 
         // add-copyright
         add(new JLabel("\u00A9 2024 POLITINDER"));
