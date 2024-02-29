@@ -19,6 +19,7 @@ public class MainForm extends JFrame {
         pnlMenu.btnRegaloTipo.addActionListener(e -> setPanel(new RegaloTipoPanel()));
         pnlMenu.btnCita.addActionListener(e -> setPanel(new CitaPanel()));
         pnlMenu.btnRelacionTipo.addActionListener(e -> setPanel(new RelacionTipoPanel()));
+        pnlMenu.btnPersona.addActionListener(e ->  setPanel(new PersonaPanel()));
     }
 
     private void setPanel(JPanel panel) {
@@ -31,7 +32,7 @@ public class MainForm extends JFrame {
 
     private void customizeComponent(String titleApp) {
         setTitle(titleApp);
-        setSize(930, 800);
+        setSize(1000, 700);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
