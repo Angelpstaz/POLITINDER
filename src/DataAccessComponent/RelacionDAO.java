@@ -65,7 +65,7 @@ public class RelacionDAO extends SQLiteDataHelper implements IDAO<RelacionDTO> {
     }
 
     @Override
-    public RelacionDTO read(Integer id) throws Exception {
+    public RelacionDTO readBy(Integer id) throws Exception {
         RelacionDTO Rdto=new RelacionDTO();
         String query="SELECT  IdRelacion        "
                         +"IdRelacionTipo;       " 

@@ -16,7 +16,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     
     @Override
     public boolean create(PersonaDTO entity) throws Exception {
-        String query="INSERT INTO PersonaRol(Nombre) VALUES(?)";
+        String query="INSERT INTO Persona(Nombre) VALUES(?)";
         try {
             Connection conn=openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);
@@ -149,4 +149,3 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
        }
        return  0 ;
     }
-}

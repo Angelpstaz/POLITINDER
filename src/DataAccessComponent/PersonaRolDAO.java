@@ -72,7 +72,7 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
     }
 
     @Override
-    public PersonaRolDTO read(Integer id) throws Exception {
+    public PersonaRolDTO readBy(Integer id) throws Exception {
         PersonaRolDTO prd= new PersonaRolDTO();
         String  query="SELECT IdPersonaRol"
                         +",IdPersonaRolPadre" 
