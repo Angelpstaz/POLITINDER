@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccessComponent.DTO.PersonaRolDTO;
+import Framework.PatException;
 
 public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDTO>{
     
@@ -35,7 +36,7 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e;
+            throw new PatException(e.getMessage(), getClass().getName(), "create()");
         }
     }
 
@@ -66,7 +67,7 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
 
             }
         } catch (Exception e) {
-            throw e;
+            throw new PatException(e.getMessage(), getClass().getName(), "readAll()");
         }
         return lst;
     }
@@ -97,7 +98,7 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
                                      ,rs.getString(7));
                                                 }            
             } catch (Exception e) {
-                throw e;
+                throw new PatException(e.getMessage(), getClass().getName(), "readBy()");
             }
             return prd;
     }
@@ -116,7 +117,7 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
-            throw e;
+            throw new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
         }
     }
 
@@ -131,25 +132,23 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
-            throw e;
+            throw new PatException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
     @Override
     public Integer getMaxRow() throws Exception {
-        String query= "SELECT COUNT(IdPersonaRol) TotalReg FROM PersonaRol"
-        + "WHERE Estado='A'";
+        int maxId =0;
+        String query = "SELECT MAX(IdPersonaRol) FROM PersonaRol WHERE Estado = 'A'";
         try {
-           Connection conn= openConnection();
-           Statement st = conn.createStatement();
-           ResultSet rs = st.executeQuery(query);
-           while (rs.next()) {
-               return rs.getInt(1);
-
-           }
-        } catch (Exception e) {
-           throw e;
-       }
-       return  0 ;
+            Connection conn = openConnection();
+            Statement  stmt = conn.createStatement();
+            ResultSet  rs   = stmt.executeQuery(query);
+            if (rs.next())
+                maxId = rs.getInt(1);
+        } catch (SQLException e) {
+            throw new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return maxId;
     }
 }

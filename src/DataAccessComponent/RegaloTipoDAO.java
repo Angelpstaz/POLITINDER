@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccessComponent.DTO.RegaloTipoDTO;
+import Framework.PatException;
 
 public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDTO> {
 
@@ -25,7 +26,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
             return true;
         } 
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
+            throw new PatException(e.getMessage(), getClass().getName(), "create()");
         }
     }
 
@@ -59,7 +60,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
              lst.add(oDTORegaloTipo);//cada vez que traemos una fila agregamos a una lista.
          }
      }catch(SQLException e){
-        throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
+        throw new PatException(e.getMessage(), getClass().getName(), "readAll()");
      }
      return lst;
     }
@@ -90,7 +91,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
             }
         } 
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
+            throw new PatException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return oDTORegaloTipo;
     }
@@ -110,7 +111,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
             return true;
         } 
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
+            throw new PatException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -126,12 +127,23 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
             return true;
         } 
         catch (SQLException e) {
-            throw new Exception(getClass()+"getMaxIdRegaloTipo",e);
+            throw new PatException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
     @Override
     public Integer getMaxRow() throws Exception {
-        throw new UnsupportedOperationException("Unimplemented method 'getMaxRow'");
+        int maxId =0;
+        String query = "SELECT MAX(IdRegaloTipo) FROM RegaloTipo WHERE Estado = 'A'";
+        try {
+            Connection conn = openConnection();
+            Statement  stmt = conn.createStatement();
+            ResultSet  rs   = stmt.executeQuery(query);
+            if (rs.next())
+                maxId = rs.getInt(1);
+        } catch (SQLException e) {
+            throw new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return maxId;
     }
 }
