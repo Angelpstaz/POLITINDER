@@ -65,7 +65,7 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
     }
 
     @Override
-    public RegaloTipoDTO read(Integer id) throws Exception {
+    public RegaloTipoDTO readBy(Integer id) throws Exception {
         RegaloTipoDTO oDTORegaloTipo = new RegaloTipoDTO();
         String query =" SELECT IdRegaloTipo  " 
                      +",Nombre            "    

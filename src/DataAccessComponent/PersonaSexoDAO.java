@@ -59,7 +59,7 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
     }
 
     @Override
-    public PersonaSexoDTO read(Integer id) throws Exception {
+    public PersonaSexoDTO readBy(Integer id) throws Exception {
         PersonaSexoDTO psd= new PersonaSexoDTO();
         String  query="SELECT IdPersonaSexo"
                         +",Nombre        " 

@@ -51,7 +51,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
     }
 
     @Override
-    public PersonaDTO read(Integer id) throws Exception {
+    public PersonaDTO readBy(Integer id) throws Exception {
         PersonaDTO pd= new PersonaDTO();
         String  query="SELECT IdPersonaRol"
                         +",IdPersonaRolPadre" 
@@ -67,7 +67,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO>  {
             Statement   stm=conn.createStatement();
             ResultSet   rs=stm.executeQuery(query);
             while (rs.next()) {
-                pd = new PersonaDTO(pd.getInt, 0, 0, query, query, query, query, query)
+                // pd = new PersonaDTO(pd.getInt, 0, 0, query, query, query, query, query)
                                                 }            
             } catch (Exception e) {
                 throw e;
